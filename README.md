@@ -1,90 +1,72 @@
-# To-Do List — Python Project 1
+# Expense Tracker — Project 2 (DecodeLabs Industrial Training Kit)
 
-## DecodeLabs | Industrial Training Kit | Batch 2026
+A simple command-line Python script that lets a user enter multiple expense amounts and displays the running total, using the **accumulator pattern**.
 
-A simple command-line To-Do List application built in Python as part of the DecodeLabs Python Programming internship track.
+## 📌 Overview
 
----
+| | |
+|---|---|
+| **Project** | 2 — Expense Tracker |
+| **Track** | Python Programming (Industrial Training Kit) |
+| **Batch** | 2026 |
+| **Key Skill** | Math operations & Accumulators |
+| **Concept** | `total = total + new_expense` (State accumulation) |
 
-## 📌 About the Project
+## 🎯 Goal
 
-This project simulates the role of a Junior Python Developer at DecodeLabs. It focuses on **Data Management fundamentals** — before building complex databases, it's essential to understand how to store and manage multiple items using core Python data structures.
+Build a script where the user enters expense amounts one at a time (e.g. `100`, `50`, `20`). The program keeps adding them up and displays the **Total Spent** once the user is done.
 
-The program allows a user to:
-- Add tasks to a list
-- View all added tasks
-- Exit the program cleanly
+## ⚙️ How It Works
 
----
-
-## 🛠️ Key Concepts Used
-
-- **Lists** — storing multiple items in a single variable
-- **append()** — adding new items dynamically
-- **enumerate()** — accessing index and value simultaneously (Pythonic way, instead of `range(len())`)
-- **Loops** — iterating through data to display it
-- **Functions** — organizing code into `add_task()`, `view_tasks()`, and `main()`
-- **`if __name__ == "__main__":`** — standard professional entry-point pattern
-
----
+1. **Initialize state outside the loop** — `total = 0.0` is set once, before the loop starts, so it isn't reset on every iteration.
+2. **Loop continuously** — `while True:` keeps asking for new expenses.
+3. **Accumulate** — every valid entry updates the state: `total += expense`.
+4. **Defensive coding** — invalid (non-numeric) input is caught with `try/except ValueError` instead of crashing the program.
+5. **Sentinel value exit** — typing `quit` breaks the loop (the "kill switch").
+6. **Output phase** — once the loop ends, the final total and transaction count are printed.
 
 ## ▶️ How to Run
 
-1. Make sure Python is installed on your system.
-2. Clone this repository:
-   ```bash
-   git clone <your-repo-link>
-   ```
-3. Navigate into the project folder:
-   ```bash
-   cd DecodeLabs
-   ```
-4. Run the script:
-   ```bash
-   python todo.py
-   ```
-
----
-
-## 💻 Sample Usage
-
-```
-===== TO-DO LIST MENU =====
-1. Add Task
-2. View Tasks
-3. Exit
-Choose an option (1-3): 1
-Enter task: Finish Python assignment
-Task 'Finish Python assignment' added successfully!
-
-===== TO-DO LIST MENU =====
-1. Add Task
-2. View Tasks
-3. Exit
-Choose an option (1-3): 2
-
---- Your Tasks ---
-1. Finish Python assignment
-------------------
+```bash
+python expense_tracker.py
 ```
 
----
+## 💻 Sample Run
 
-## 📚 What I Learned
+```
+Expense Tracker - DecodeLabs
+Enter expense amounts one by one. Type 'quit' to stop.
 
-This project reinforced that even a simple list is the foundation of every database system — from a single Python script to platforms like Instagram and Google, the underlying logic of storing, processing, and displaying data remains the same.
+Enter expense (or 'quit' to finish): 100
+Added: 100.00 | Running Total: 100.00
 
----
+Enter expense (or 'quit' to finish): 50
+Added: 50.00 | Running Total: 150.00
 
-## 🙋 Author
+Enter expense (or 'quit' to finish): 20
+Added: 20.00 | Running Total: 170.00
 
-Mahi
-BS Artificial Intelligence, Hamdard University, Karachi
+Enter expense (or 'quit' to finish): quit
+------------------------------
+Transactions recorded: 3
+FINAL TOTAL SPENT: 170.00
+```
 
----
+## ✅ Quality Checklist (per project guidelines)
 
-## 🏢 Internship
+- [x] Stability: handles 5+ transactions without breaking
+- [x] State: `total` initialized **outside** the loop
+- [x] Defense: catches `ValueError` on invalid input
+- [x] Control: sentinel value (`quit`) cleanly exits and prints the final total
 
-**DecodeLabs**
-🌐 www.decodelabs.tech
-📧 decodelabs.tech@gmail.com
+## 📂 Files
+
+- `expense_tracker.py` — main script
+- `README.md` — this file
+
+## 🏢 Credits
+
+Built as part of the **DecodeLabs Industrial Training Kit — Python Programming, Batch 2026**.
+
+- 🌎 www.decodelabs.tech
+- ✉️ decodelabs.tech@gmail.com
